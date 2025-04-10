@@ -12,6 +12,7 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
+            box-sizing: border-box;
         }
         h1 {
             text-align: center;
@@ -42,28 +43,187 @@
             flex: 1;
             border: 1px solid #ccc;
             border-radius: 5px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            gap: 10px;
+        }
+        .nav-button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .nav-button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .page-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .current-page {
+            font-weight: bold;
+            min-width: 30px;
+            text-align: center;
+        }
+        select.page-select {
+            padding: 6px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
         }
         iframe {
             width: 100%;
-            height: 100%;
+            flex: 1;
             border: none;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .container {
+                flex-direction: column;
+            }
+            
+            .links {
+                width: 100%;
+                max-height: 150px;
+                margin-bottom: 10px;
+            }
+            
+            .links a {
+                padding: 8px 0;
+                margin-bottom: 5px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .viewer {
+                min-height: 350px;
+            }
+            
+            .navigation {
+                padding: 8px 5px;
+            }
+            
+            .nav-button {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Small screens */
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            
+            h1 {
+                font-size: 1.2rem;
+            }
+            
+            .page-info {
+                flex-direction: column;
+                gap: 5px;
+            }
         }
     </style>
 </head>
 <body>
     <h1>Document Viewer</h1>
     <div class="container">
-        <div class="links">
+        <!-- <div class="links">
             <h3>Pages</h3>
             <script>
                 for (let i = 1; i <= 42; i++) {
-                    document.write(`<a href="${i}.html" target="documentFrame">Page ${i}</a>`);
+                    document.write(`<a href="${i}.html" target="documentFrame" onclick="updateNavigation(${i})">Page ${i}</a>`);
                 }
             </script>
-        </div>
+        </div> -->
         <div class="viewer">
-            <iframe name="documentFrame" src="1.html"></iframe>
+            <div class="navigation">
+                <button id="prevBtn" class="nav-button" onclick="navigate(-1)">Previous</button>
+                <div class="page-info">
+                    <span>Page</span>
+                    <span id="currentPage" class="current-page">1</span>
+                    <span>of 42</span>
+                    <select id="pageSelect" class="page-select" onchange="jumpToPage()">
+                        <script>
+                            for (let i = 1; i <= 42; i++) {
+                                document.write(`<option value="${i}">Page ${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+                <button id="nextBtn" class="nav-button" onclick="navigate(1)">Next</button>
+            </div>
+            <iframe id="documentFrame" name="documentFrame" src="1.html"></iframe>
         </div>
     </div>
+
+    <script>
+        let currentPageNumber = 1;
+        const totalPages = 42;
+        
+        // Initialize navigation on load
+        window.onload = function() {
+            updateNavigation(1);
+        };
+        
+        function updateNavigation(pageNum) {
+            currentPageNumber = pageNum;
+            document.getElementById('currentPage').textContent = pageNum;
+            document.getElementById('pageSelect').value = pageNum;
+            
+            // Enable/disable navigation buttons
+            document.getElementById('prevBtn').disabled = (pageNum <= 1);
+            document.getElementById('nextBtn').disabled = (pageNum >= totalPages);
+            
+            // Highlight current page in sidebar
+            const links = document.querySelectorAll('.links a');
+            links.forEach((link, index) => {
+                if (index + 1 === pageNum) {
+                    link.style.fontWeight = 'bold';
+                    link.style.color = '#333';
+                } else {
+                    link.style.fontWeight = 'normal';
+                    link.style.color = '#0066cc';
+                }
+            });
+        }
+        
+        function navigate(direction) {
+            const newPage = currentPageNumber + direction;
+            if (newPage >= 1 && newPage <= totalPages) {
+                currentPageNumber = newPage;
+                document.getElementById('documentFrame').src = `${newPage}.html`;
+                updateNavigation(newPage);
+            }
+        }
+        
+        function jumpToPage() {
+            const selectedPage = parseInt(document.getElementById('pageSelect').value);
+            document.getElementById('documentFrame').src = `${selectedPage}.html`;
+            updateNavigation(selectedPage);
+        }
+    </script>
 </body>
 </html>
