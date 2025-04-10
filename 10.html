@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt; /* Approximate size */
+            line-height: 1.6;
+            margin: 50px; /* Add margins to simulate page boundaries */
+        }
+        .container {
+            width: 80%; /* Adjust width as needed */
+            margin: 0 auto;
+            position: relative; /* Needed for absolute positioning of notes */
+        }
+        .list-item {
+            margin-left: 20px; /* Indentation for list items */
+            position: relative;
+            padding-right: 100px; /* Space for the right-aligned amount */
+            margin-bottom: 10px; /* Space between list items */
+        }
+        .amount {
+            position: absolute;
+            right: 0;
+            top: 0; /* Align with the top of the list item text */
+            text-align: right;
+            width: 100px; /* Fixed width for amount alignment */
+        }
+        .note {
+            position: absolute;
+            right: 0;
+            top: -1.5em; /* Position above the list */
+            font-style: italic;
+            color: #555; /* Lighter color if needed */
+        }
+        .closing {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        .closing p {
+            margin: 0;
+            line-height: 1.4;
+        }
+        .main-paragraph {
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px; /* Space above footer */
+            position: relative; /* For signature positioning */
+        }
+        .signature {
+            position: absolute;
+            right: 10px; /* Adjust position */
+            bottom: 0;
+            font-style: italic; /* Represent signature stylistically */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="position: relative; margin-bottom: 20px;">
+            <span class="note">(marked in red)</span>
+            <div class="list-item">
+                3. TDS has not been considered in your account
+                <span class="amount">8,38,912/-</span>
+            </div>
+            <div class="list-item">
+                4. Mismatches of candidates – 39 candidates & 9 Batches<br>
+                (will be reconsidered in ISPL book)
+            </div>
+            <div class="list-item">
+                5. There are change in rate against RPL scheme after<br>
+                revised commercial from 250 per candidate to 200<br>
+                (samim -20350 candidates @ 200/- but in ISPL account<br>
+                Its 28433 candidates) Dif amount is
+                <span class="amount">4,04,150/-</span>
+            </div>
+        </div>
+
+        <div class="closing">
+            <p>Thanks and Regards</p>
+            <p>With Regards,</p>
+            <p>Pooja Gupta.”</p>
+        </div>
+
+        <p class="main-paragraph">
+            Thus, the email dated 04.02.2019 issued by the Respondent records that while
+            the outstanding as per Claimant was Rs.37,14,397/-, the outstanding as per the
+            Respondent/ISPL was Rs.18,33,287/-. The said email also states that there is a
+            reconciliation sheet according to the Respondent’s working on that date. There
+            are 2 other attachments to the said email, namely ‘As per India Skills books of
+            Account’ and ‘As per Samim Books of Account’. As per Respondent, these
+            attachments were placed on record along with additional documents filed on
+            12.06.2023. The account details furnished by the Claimant shows that as per the
+            Claimant, total amount payable as on 04.02.2019 was Rs.1,06,85,965/-, out
+            which the sum of Rs.69,71,568/- was the amount paid by India Skills and balance
+            amount of Rs.37,14,397/- was the due and outstanding sums / receivables from
+            Respondent. The other document, which was the India Skills books of account,
+            comprise of Invoice details and Assessment Date. However, there is also
+            statements showing the details of Billing Candidates, Rate, Gross Billing,
+            Coordinators share, TDS and Net Amount Due etc. to the Claimant. At the foot
+        </p>
+
+        <div class="footer">
+            10
+            <span class="signature">Vibha</span>
+        </div>
+    </div>
+</body>
+</html>

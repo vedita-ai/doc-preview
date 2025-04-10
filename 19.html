@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Times, "Times New Roman", serif; /* Serif font like original */
+            line-height: 1.6; /* Adjust line spacing */
+            margin: 40px;
+            max-width: 750px; /* Approximate width of content area */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        p, div.list-content {
+            margin-top: 0;
+            margin-bottom: 1em; /* Space between paragraphs */
+            text-align: justify; /* Justify text like the original */
+        }
+        .underlined {
+            text-decoration: underline;
+        }
+        .list-item {
+             display: flex; /* Use flexbox for alignment */
+             margin-bottom: 1em;
+             padding-left: 10px; /* Slight indent for the whole item */
+        }
+        .list-number {
+             width: 30px; /* Space for number */
+             text-align: left;
+             padding-right: 10px; /* Space between number and text */
+             flex-shrink: 0; /* Prevent number from shrinking */
+             font-weight: normal;
+        }
+         .list-content {
+             flex-grow: 1; /* Allow text content to take remaining space */
+             margin-bottom: 0; /* Remove bottom margin if part of list-item */
+         }
+        .center {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .right {
+            text-align: right;
+            margin-top: 2.5em; /* Space above signature */
+            margin-bottom: 0;
+            padding-right: 40px; /* Position signature slightly from edge */
+        }
+        .signature {
+            /* Attempting to replicate handwritten style */
+            font-family: "Brush Script MT", "Comic Sans MS", cursive;
+            font-size: 1.6em; /* Slightly larger signature */
+            font-style: italic;
+        }
+        hr.short-line {
+             width: 8%; /* Short line above page number */
+             margin: 0.5em auto 0.5em auto; /* Center the line */
+             border: none;
+             border-top: 1px solid black;
+        }
+        .page-number-container {
+            margin-top: 0em; /* Space below the signature/line */
+        }
+    </style>
+</head>
+<body>
+    <p>
+        prevented the appellant from placing the said complaints on record or
+        having the same summoned from the concerned authorities to whom they
+        were addressed. <span class="underlined">Non-production of the documents admittedly available
+        with the appellant that would lend credence to the version set up by the
+        appellant that the incident of corrupt practice was reported to him and/or
+        to his election agent would give rise to an adverse inference against the
+        appellant that either such complaints were never made or if the same were
+        made they did not contain any charge regarding the commission of
+        corrupt practices by the respondent in the manner and on the dates and
+        the places alleged in the petition. We may in this regard refer to
+        illustration (g) to Section 114 of the Evidence Act which permits the Court
+        to draw an adverse presumption against the party in default to the effect
+        that evidence which could be but is not produced would, if produced, have
+        been unfavourable to the person who withholds it. The rule is contained
+        in the well-known maxim: omnia praesumuntur contra spoliatorem. If a
+        man wrongfully withholds evidence, every presumption to his
+        disadvantage consistent with the facts admitted or proved will be adopted.
+        We need to remind ourselves that in an election dispute where oral
+        evidence is generally partisan in character as has been demonstrated in
+        the present case, the non-production of documentary material that could
+        lend support to the appellant's charge of bribery against the respondent
+        would assume great importance. Absence of a plausible explanation for
+        non- production of the documentary evidence would completely discredit
+        the version which the oral evidence attempts to support.</span>”
+    </p>
+
+    <div class="list-item">
+        <span class="list-number">3.</span>
+        <div class="list-content">
+             The further contention of the Respondent that despite repeated requests
+             and efforts, the Claimant did not turn out for the settlement of accounts
+             nor provided the ledger account maintained by the Claimant, is also not
+             borne out from the documents placed on record. Even though the
+             Claimant wrote several mails to the Respondent requesting it to release
+        </div>
+    </div>
+
+    <div class="right">
+        <span class="signature">Vibha</span>
+    </div>
+
+    <div class="page-number-container">
+        <hr class="short-line">
+        <p class="center">19</p>
+    </div>
+
+</body>
+</html>
